@@ -254,8 +254,21 @@
   overflow-wrap: anywhere;
 }
 
-.payment-success h2:focus {
+.payment-success:focus {
   outline: none;
+  border-radius: 8px;
+  background: #f7f9f5;
+}
+
+.checkout-notice h1 {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.checkout-notice p {
+  color: var(--text-muted);
+  font-size: 14px;
 }
 
 .processing-spinner {

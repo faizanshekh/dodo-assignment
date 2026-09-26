@@ -7,11 +7,12 @@ import type { PaymentState } from '../lib/fakePayment'
 
 type CheckoutFormProps = {
   payment: PaymentState
+  priceLabel: string
   onPay: (cardNumber: string) => Promise<void>
   onEdit: () => void
 }
 
-export default function CheckoutForm({ payment, onPay, onEdit }: CheckoutFormProps) {
+export default function CheckoutForm({ payment, priceLabel, onPay, onEdit }: CheckoutFormProps) {
   const [values, setValues] = useState<CheckoutValues>({
     email: '', cardNumber: '', expiry: '', cvc: '',
   })
@@ -74,7 +75,7 @@ export default function CheckoutForm({ payment, onPay, onEdit }: CheckoutFormPro
 
         <button className="pay-button" type="submit" disabled={isProcessing}>
           {isProcessing && <span className="processing-spinner" aria-hidden="true" />}
-          {isProcessing ? 'Processing…' : payment.status === 'retryable_error' ? 'Try again' : 'Pay $49.00'}
+          {isProcessing ? 'Processing…' : payment.status === 'retryable_error' ? 'Try again' : `Pay ${priceLabel}`}
         </button>
         <p className="checkout-security">
           <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
