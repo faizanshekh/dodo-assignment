@@ -1,0 +1,16 @@
+{
+  "name": "sdk",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc --noEmit && vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1"
+  }
+}

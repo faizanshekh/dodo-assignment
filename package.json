@@ -1,0 +1,14 @@
+{
+  "name": "dodo-assignment",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:checkout": "npm run dev --workspace=apps/checkout",
+    "dev:demo": "npm run dev --workspace=apps/demo",
+    "build": "npm run build --workspaces --if-present"
+  }
+}
