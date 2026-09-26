@@ -60,7 +60,7 @@ if (typeof window.DodoCheckout?.open !== 'function') {
 
     try {
       window.DodoCheckout.open({
-        productId: 'prod_invalid',
+        productId: 'prod_123',
         onSuccess: ({ sessionId }) => {
           setCheckoutOpen(false)
           logEvent('success', 'Payment successful', `Session ID: ${sessionId}`)
