@@ -3,6 +3,12 @@
 A tiny embeddable checkout built for the Dodo Payments frontend assignment.
 Payments are simulated; there is no backend or real charge.
 
+## Live demo
+
+Demo: [https://dodo-demo-site-ashen.vercel.app/](https://dodo-demo-site-ashen.vercel.app/)
+
+Checkout app: [https://dodo-checkout-pearl.vercel.app/](https://dodo-checkout-pearl.vercel.app/)
+
 ## Architecture and stack
 
 ```text
