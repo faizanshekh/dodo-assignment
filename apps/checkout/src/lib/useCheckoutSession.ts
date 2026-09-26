@@ -55,13 +55,6 @@ export function useCheckoutSession() {
       } else {
         const message = 'This demo product could not be found. Please return to the merchant.'
         setSession({ status: 'error', message })
-        sendTerminal({
-          channel: CHANNEL,
-          version: VERSION,
-          checkoutId: context.checkoutId,
-          type: 'CHECKOUT_ERROR',
-          payload: { code: 'PRODUCT_NOT_FOUND', message },
-        })
       }
     }
 
@@ -75,7 +68,22 @@ export function useCheckoutSession() {
     }, context.parentOrigin)
 
     return () => window.removeEventListener('message', handleMessage)
-  }, [context, sendTerminal])
+  }, [context])
+
+  useEffect(() => {
+    if (context.kind !== 'embedded' || session.status !== 'error') return
+
+    // Start the delay after the error state renders so it is readable before closing.
+    const timeout = window.setTimeout(() => sendTerminal({
+      channel: CHANNEL,
+      version: VERSION,
+      checkoutId: context.checkoutId,
+      type: 'CHECKOUT_ERROR',
+      payload: { code: 'PRODUCT_NOT_FOUND', message: session.message },
+    }), 1000)
+
+    return () => window.clearTimeout(timeout)
+  }, [context, session, sendTerminal])
 
   const requestClose = useCallback(() => {
     if (context.kind !== 'embedded') return

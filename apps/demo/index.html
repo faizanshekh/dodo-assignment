@@ -2,12 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>demo</title>
+    <meta name="description" content="A small demo store powered by Dodo Checkout." />
+    <title>Developer Supply — Demo Store</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="page">
+      <header class="site-header">
+        <p class="store-name">Developer Supply</p>
+        <span class="demo-label">Demo store</span>
+      </header>
+
+      <main class="store-layout">
+        <article class="product-card" aria-labelledby="product-title">
+          <p class="eyebrow">For your next project</p>
+          <h1 id="product-title">Developer Pro Plan</h1>
+          <p class="description">A simple upgrade for the things you’re building.</p>
+          <p class="price"><strong>$49.00</strong><span>One-time purchase</span></p>
+          <button id="buy-now" class="buy-button" type="button">Buy now</button>
+          <p class="purchase-note">Secure checkout powered by Dodo</p>
+        </article>
+
+        <section class="events-panel" aria-labelledby="events-title">
+          <h2 id="events-title">Checkout events</h2>
+          <p class="events-intro">Open checkout to see purchase activity here.</p>
+          <ol
+            id="event-log"
+            class="event-log"
+            role="log"
+            aria-labelledby="events-title"
+            aria-live="polite"
+            aria-relevant="additions"
+          >
+            <li id="empty-log" class="empty-log">No checkout events yet.</li>
+          </ol>
+        </section>
+      </main>
+
+      <p class="page-note">This is a demo purchase. No real charges are made.</p>
+      <noscript><p class="page-note">Enable JavaScript to try checkout.</p></noscript>
+    </div>
+    <script src="/checkout-sdk.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

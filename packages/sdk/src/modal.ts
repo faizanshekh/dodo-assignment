@@ -27,13 +27,17 @@ const modalStyles = `
     color-scheme: light;
     font: 16px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
-  .overlay[open] { display: grid; place-items: center; }
+  .overlay[open] {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+    place-items: center;
+  }
   .overlay::backdrop { background: rgb(13 22 16 / 48%); }
   .panel {
     position: relative;
     width: min(100%, 480px);
-    height: min(760px, calc(100vh - 48px));
-    height: min(760px, calc(100dvh - 48px));
+    height: 100%;
+    min-height: 0;
     overflow: hidden;
     border-radius: 18px;
     background: #f5f5f2;
